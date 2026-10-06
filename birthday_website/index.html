@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise 🎀</title>
+<meta name="description" content="A little birthday surprise made with care.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap');
+
+:root{
+  --pink:#ff8fb3; --pink2:#ffd1df; --cream:#fffaf5;
+  --ink:#46343d; --purple:#b9a2e8; --yellow:#ffe58f;
+  --white:#fff; --shadow:0 18px 45px rgba(86,52,70,.13);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; color:var(--ink); font-family:"DM Sans",sans-serif;
+  background:
+    radial-gradient(circle at 10% 10%,#ffe3ec 0 90px,transparent 91px),
+    radial-gradient(circle at 90% 20%,#e9e0ff 0 110px,transparent 111px),
+    var(--cream); overflow-x:hidden;
+}
+button{font:inherit}
+#intro{
+  position:fixed; inset:0; z-index:1000; display:grid; place-items:center;
+  background:linear-gradient(135deg,#fff4f7,#f7efff);
+  transition:.7s ease;
+}
+.intro-card{text-align:center;padding:30px;max-width:500px}
+.bunny{font-size:76px;animation:bounce 1.7s infinite}
+@keyframes bounce{50%{transform:translateY(-12px) rotate(3deg)}}
+.script{font-family:Pacifico,cursive;color:var(--pink);font-weight:400}
+.intro-card h1{font-size:clamp(38px,9vw,70px);margin:8px 0}
+.intro-card p{font-size:16px;line-height:1.7}
+.btn{
+  border:0; cursor:pointer; padding:13px 20px; border-radius:999px;
+  background:var(--ink); color:white; font-weight:700; box-shadow:0 10px 25px rgba(70,52,61,.16);
+  transition:.2s;
+}
+.btn:hover{transform:translateY(-2px) scale(1.02)}
+.btn.pink{background:var(--pink)}
+main{max-width:1050px;margin:auto;padding:30px 18px 70px}
+nav{
+  position:sticky;top:10px;z-index:50;display:flex;gap:8px;justify-content:center;
+  flex-wrap:wrap;margin-bottom:45px
+}
+nav a{background:#ffffffc9;backdrop-filter:blur(10px);padding:8px 13px;border-radius:999px;text-decoration:none;color:var(--ink);font-size:13px;font-weight:700;box-shadow:0 5px 18px #0000000b}
+.hero{text-align:center;min-height:75vh;display:grid;place-items:center}
+.hero-inner{position:relative}
+.kicker{font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:700;opacity:.65}
+.hero h1{font-size:clamp(48px,11vw,100px);line-height:.95;margin:12px 0;font-weight:700}
+.hero h1 span{font-family:Pacifico,cursive;color:var(--pink);font-weight:400}
+.hero p{max-width:650px;margin:20px auto;line-height:1.8}
+.floating{position:absolute;inset:-80px -90px;pointer-events:none}
+.float{position:absolute;font-size:28px;animation:float 4s ease-in-out infinite}
+.f1{left:2%;top:20%}.f2{right:3%;top:8%;animation-delay:.7s}.f3{left:12%;bottom:8%;animation-delay:1.2s}.f4{right:15%;bottom:15%;animation-delay:1.8s}
+@keyframes float{50%{transform:translateY(-20px) rotate(8deg)}}
+.section{padding:70px 0}
+.section-title{text-align:center;margin-bottom:30px}
+.section-title h2{font-size:35px;margin:6px 0}.section-title p{opacity:.7}
+.card{
+  background:#fff; border:1px solid #ffffff; border-radius:28px; padding:25px;
+  box-shadow:var(--shadow)
+}
+.scrapbook{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.note{background:#fff7b8;transform:rotate(-1deg);padding:30px;border-radius:4px;box-shadow:0 12px 25px #00000012}
+.note:nth-child(2){background:#ffddeb;transform:rotate(1.5deg)}
+.note:nth-child(3){background:#dff6ec;transform:rotate(-1.3deg)}
+.note h3{margin-top:0}.note p{line-height:1.8}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.photo{
+  aspect-ratio:1/1;overflow:hidden;border-radius:16px;background:#f2e9ed;
+  border:9px solid #fff;box-shadow:0 12px 25px #00000012;cursor:pointer;transition:.25s
+}
+.photo:hover{transform:rotate(2deg) scale(1.025)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.caption{text-align:center;font-size:13px;margin-top:8px}
+.letter{max-width:760px;margin:auto;line-height:2;font-size:16px}
+.letter p{margin:0 0 18px}
+.highlight{color:var(--pink);font-weight:700}
+.cake-wrap{text-align:center}
+.cake{font-size:115px;cursor:pointer;display:inline-block;filter:drop-shadow(0 10px 10px #0002);transition:.2s}
+.cake:hover{transform:scale(1.06) rotate(-2deg)}
+.hint{font-size:13px;opacity:.65}
+.game{max-width:700px;margin:auto;text-align:center}
+.game-area{height:300px;position:relative;background:linear-gradient(135deg,#fff0f5,#f4efff);border-radius:25px;overflow:hidden;margin:20px 0}
+.heart{position:absolute;border:0;background:none;font-size:30px;cursor:pointer;animation:pulse 1.4s infinite}
+@keyframes pulse{50%{transform:scale(1.2)}}
+#gameMsg{font-weight:700;min-height:28px}
+.counter{font-size:14px}
+.final{text-align:center;padding:70px 20px 30px}
+.final h2{font-family:Pacifico,cursive;color:var(--pink);font-size:45px;font-weight:400}
+footer{text-align:center;opacity:.55;font-size:12px;padding:20px}
+.confetti{position:fixed;top:-20px;z-index:999;font-size:20px;pointer-events:none;animation:fall 2.7s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(700deg);opacity:0}}
+.modal{position:fixed;inset:0;background:#2d202880;backdrop-filter:blur(6px);z-index:900;display:none;place-items:center;padding:20px}
+.modal.show{display:grid}
+.modal-box{max-width:700px;width:100%;background:#fff;border-radius:25px;padding:12px;position:relative}
+.modal-box img{width:100%;max-height:75vh;object-fit:contain;border-radius:17px}
+.close{position:absolute;right:15px;top:15px;border:0;border-radius:50%;width:38px;height:38px;background:#fff;cursor:pointer;font-size:20px;z-index:2}
+@media(max-width:700px){
+  .scrapbook{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}
+  .hero{min-height:70vh}.hero h1{font-size:58px}.section{padding:50px 0}
+}
+</style>
+</head>
+<body>
+
+<div id="intro">
+  <div class="intro-card">
+    <div class="bunny">🐰</div>
+    <div class="script">a tiny surprise...</div>
+    <h1>For <span id="introName">NAMA</span> 🎀</h1>
+    <p>Katanya sih ini cuma website biasa.<br>Tapi coba dibuka dulu...</p>
+    <button class="btn pink" onclick="startSite()">Buka hadiahnya ✨</button>
+  </div>
+</div>
+
+<main>
+  <nav>
+    <a href="#home">Home</a><a href="#words">Words</a><a href="#photos">Photos</a>
+    <a href="#game">Game</a><a href="#cake">Cake</a>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <div class="floating">
+        <span class="float f1">🌷</span><span class="float f2">✨</span>
+        <span class="float f3">🎀</span><span class="float f4">💗</span>
+      </div>
+      <div class="kicker">A little birthday website for</div>
+      <h1><span id="name1">NAMA</span><br>is getting older! 🎂</h1>
+      <p>
+        Selamat ulang tahun, <b id="name2">NAMA</b>!<br>
+        Hari ini resmi bertambah satu angka lagi.
+        Tenang, angka hanyalah angka... walaupun mulai bikin panik. 😭
+      </p>
+      <button class="btn" onclick="document.querySelector('#words').scrollIntoView()">Ada sesuatu ↓</button>
+    </div>
+  </section>
+
+  <section id="words" class="section">
+    <div class="section-title">
+      <div class="script">a few little things</div>
+      <h2>Some words for you 💌</h2>
+      <p>Bagian ini bisa kamu ganti sesuka hati.</p>
+    </div>
+    <div class="scrapbook">
+      <div class="note"><h3>🌷 Pertama...</h3>
+        <p>Selamat ulang tahun, <b class="name">NAMA</b>! Semoga hari ini menyenangkan dan dipenuhi hal-hal kecil yang bikin kamu senyum.</p>
+      </div>
+      <div class="note"><h3>☁️ Semoga...</h3>
+        <p>Semoga apa pun yang sedang kamu perjuangkan sekarang bisa berjalan dengan baik. Jangan terlalu keras sama diri sendiri.</p>
+      </div>
+      <div class="note"><h3>🧸 Oh iya...</h3>
+        <p>Walaupun sekarang statusnya sudah berubah, aku tetap berharap kamu mendapatkan banyak hal baik. Jangan geer dulu. 😭</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="photos" class="section">
+    <div class="section-title">
+      <div class="script">little memories</div>
+      <h2>Photo corner 📸</h2>
+      <p>Ganti file foto di folder <b>images</b>.</p>
+    </div>
+    <div class="gallery">
+      <div><div class="photo" onclick="openPhoto('images/foto1.jpg')"><img src="images/foto1.jpg" alt="Foto 1"></div><div class="caption">"caption foto 1"</div></div>
+      <div><div class="photo" onclick="openPhoto('images/foto2.jpg')"><img src="images/foto2.jpg" alt="Foto 2"></div><div class="caption">"caption foto 2"</div></div>
+      <div><div class="photo" onclick="openPhoto('images/foto3.jpg')"><img src="images/foto3.jpg" alt="Foto 3"></div><div class="caption">"caption foto 3"</div></div>
+      <div><div class="photo" onclick="openPhoto('images/foto4.jpg')"><img src="images/foto4.jpg" alt="Foto 4"></div><div class="caption">"caption foto 4"</div></div>
+      <div><div class="photo" onclick="openPhoto('images/foto5.jpg')"><img src="images/foto5.jpg" alt="Foto 5"></div><div class="caption">"caption foto 5"</div></div>
+      <div><div class="photo" onclick="openPhoto('images/foto6.jpg')"><img src="images/foto6.jpg" alt="Foto 6"></div><div class="caption">"caption foto 6"</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <div class="script">open slowly</div><h2>A little letter 💌</h2>
+    </div>
+    <div class="card letter">
+      <p>Hai, <span class="highlight name">NAMA</span>.</p>
+      <p>
+        Aku sebenarnya sempat mikir mau bikin ucapan yang biasa saja.
+        "Happy birthday, semoga panjang umur." Selesai.
+        Tapi ternyata kalau sudah buka laptop, malah jadi begini. 😭
+      </p>
+      <p>
+        Terlepas dari semua cerita yang pernah ada, aku tetap berharap kamu baik-baik saja,
+        bahagia, dan dikelilingi orang-orang yang sayang sama kamu.
+      </p>
+      <p>
+        Semoga di umur yang baru ini kamu menemukan lebih banyak alasan untuk tersenyum,
+        lebih banyak hal yang bisa dibanggakan, dan tentunya lebih banyak makanan enak.
+      </p>
+      <p>
+        Terakhir... <b>Happy Birthday!</b> 🎂✨
+        Jangan lupa bahagia. Itu perintah.
+      </p>
+      <p style="text-align:right">— seseorang dari masa lalu :)</p>
+    </div>
+  </section>
+
+  <section id="game" class="section">
+    <div class="section-title">
+      <div class="script">tiny game</div>
+      <h2>Catch the hearts! 💗</h2>
+      <p>Klik 5 hati yang muncul. Jangan sampai kalah sama website. 😭</p>
+    </div>
+    <div class="game">
+      <div class="counter">Hearts: <b id="score">0</b>/5</div>
+      <div class="game-area" id="gameArea"></div>
+      <div id="gameMsg"></div>
+      <button class="btn pink" onclick="startGame()">Mulai game 🎮</button>
+    </div>
+  </section>
+
+  <section id="cake" class="section">
+    <div class="section-title">
+      <div class="script">one last thing</div>
+      <h2>Make a wish 🎂</h2>
+      <p>Klik kuenya. Iya, kuenya.</p>
+    </div>
+    <div class="cake-wrap">
+      <div class="cake" onclick="birthday()">🎂</div>
+      <p class="hint">tap / click the cake</p>
+      <h3 id="wish" style="min-height:28px"></h3>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="script">that's all!</div>
+    <h2>Happy Birthday, <span class="name">NAMA</span>! 🎀</h2>
+    <p>Semoga hari ini jadi salah satu hari yang kamu ingat dengan senyum.</p>
+    <p><b>Dan jangan lupa...</b><br>Traktiran ditunggu. 😭</p>
+    <button class="btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">🔄 Mulai dari awal</button>
+  </section>
+
+  <footer>Made with too much effort & a little bit of nostalgia. ✨</footer>
+</main>
+
+<div class="modal" id="modal" onclick="closePhoto()">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="close" onclick="closePhoto()">×</button>
+    <img id="modalImg" src="" alt="Foto besar">
+  </div>
+</div>
+
+<script>
+/* ==========================================================
+   ✏️ BAGIAN YANG PALING MUDAH DIGANTI
+   ========================================================== */
+const CONFIG = {
+  nama: "LALAA",
+  tanggal: "24 April 2027"
+};
+
+/* Terapkan nama secara otomatis ke seluruh website */
+document.querySelectorAll(".name").forEach(el => el.textContent = CONFIG.nama);
+document.getElementById("name1").textContent = CONFIG.nama;
+document.getElementById("name2").textContent = CONFIG.nama;
+document.getElementById("introName").textContent = CONFIG.nama;
+
+/* Opening */
+function startSite(){
+  document.getElementById("intro").style.opacity="0";
+  document.getElementById("intro").style.pointerEvents="none";
+  setTimeout(()=>document.getElementById("intro").remove(),700);
+  confetti(28);
+}
+
+/* Foto fullscreen */
+function openPhoto(src){
+  document.getElementById("modalImg").src=src;
+  document.getElementById("modal").classList.add("show");
+}
+function closePhoto(){
+  document.getElementById("modal").classList.remove("show");
+}
+
+/* Confetti */
+function confetti(amount=45){
+  const icons=["🎀","💗","✨","🌸","⭐","💖","🎉"];
+  for(let i=0;i<amount;i++){
+    const el=document.createElement("div");
+    el.className="confetti";
+    el.textContent=icons[Math.floor(Math.random()*icons.length)];
+    el.style.left=Math.random()*100+"vw";
+    el.style.animationDelay=Math.random()*.5+"s";
+    el.style.fontSize=(14+Math.random()*18)+"px";
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),3300);
+  }
+}
+
+/* Mini game */
+let score=0, gameTimer;
+function startGame(){
+  clearTimeout(gameTimer);
+  score=0;
+  document.getElementById("score").textContent=score;
+  document.getElementById("gameMsg").textContent="";
+  const area=document.getElementById("gameArea");
+  area.innerHTML="";
+  spawnHeart();
+}
+function spawnHeart(){
+  const area=document.getElementById("gameArea");
+  const h=document.createElement("button");
+  h.className="heart";
+  h.textContent="💗";
+  h.style.left=(5+Math.random()*85)+"%";
+  h.style.top=(5+Math.random()*80)+"%";
+  h.onclick=()=>{
+    score++;
+    document.getElementById("score").textContent=score;
+    h.remove();
+    if(score>=5){
+      document.getElementById("gameMsg").textContent="🎉 YAY! Kamu menang! Sekarang hadiahnya... ya cuma ucapan. 😭";
+      confetti(30);
+    }else spawnHeart();
+  };
+  area.appendChild(h);
+  gameTimer=setTimeout(()=>{
+    if(document.body.contains(h)) h.remove();
+  },2500);
+}
+
+/* Birthday cake */
+function birthday(){
+  document.getElementById("wish").textContent="✨ Wish unlocked: semoga semua hal baik pelan-pelan datang ke kamu. ✨";
+  confetti(65);
+}
+
+/* Escape untuk modal */
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closePhoto()});
+</script>
+</body>
+</html>
